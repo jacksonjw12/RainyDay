@@ -13,7 +13,7 @@ function main(){
 	canvas.context.fillRect(0,0,canvas.width,canvas.height);
 	particleSystem = new ParticleSystem(canvas.context);
 	
-	particleSystem.startRain([600,900],[0,550],400,1.1)
+	particleSystem.startRain([600,900],[200,400],400,1.1)
 	particleSystem.addTenParticles();
 	keys = new Keyboard();
 	keys.initialize(keys)
@@ -27,7 +27,8 @@ function main(){
 
 function render(){
 	canvas.context.clearRect(0,0,canvas.width,canvas.height);
-
+	canvas.context.rect(particleSystem.rainDynamics.xRange[0],particleSystem.rainDynamics.yRange[0],particleSystem.rainDynamics.xRange[1]-particleSystem.rainDynamics.xRange[0],particleSystem.rainDynamics.yRange[1]-particleSystem.rainDynamics.yRange[0]);
+	canvas.context.stroke();
 	var now = new Date();
 	var timeBetweenFrames = now-timeData.previousFrame;
 

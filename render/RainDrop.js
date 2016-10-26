@@ -13,10 +13,17 @@ function RainDrop(x, y, life, angle, speed, length, width, color){
 		
 		//context.fillStyle = this.color;
 		//context.fillRect(this.position.x-this.width/2,this.position.y-this.length, this.width,this.length)
+		var startY = this.position.y-this.length;
+		var endY = this.position.y;
+		if(startY < particleSystem.rainDynamics.yRange[0]){
+			startY = particleSystem.rainDynamics.yRange[0];
+		}
+		if(endY > particleSystem.rainDynamics.yRange[1]){
+			endY = particleSystem.rainDynamics.yRange[1];
+		}
 		
-		
-		canvas.context.moveTo(this.position.x, this.position.y-this.length);
-		canvas.context.lineTo(this.position.x, this.position.y);
+		canvas.context.moveTo(this.position.x, startY);
+		canvas.context.lineTo(this.position.x, endY);
 		
     }
 
