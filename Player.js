@@ -27,7 +27,7 @@ function Player(xPos, yPos, xVel, yVel){
 			}
 			
 		}
-		if(keys.keysDown.indexOf("D") < 0 && keys.keysDown.indexOf("A") < 0){
+		if((keys.keysDown.indexOf("D") < 0 && keys.keysDown.indexOf("A") < 0) || (keys.keysDown.indexOf("D") > -1 && keys.keysDown.indexOf("A") > -1)){
 			if(Math.abs(this.playerData.xVel) > this.playerData.friction*dts){
 				this.playerData.xVel -= dts*this.playerData.friction*Math.abs(this.playerData.xVel)/this.playerData.xVel
 			}
@@ -55,7 +55,7 @@ function Player(xPos, yPos, xVel, yVel){
 			}
 			
 		}
-		if(keys.keysDown.indexOf("W") < 0 && keys.keysDown.indexOf("S") < 0){
+		if((keys.keysDown.indexOf("W") < 0 && keys.keysDown.indexOf("S") < 0) || (keys.keysDown.indexOf("W") > -1 && keys.keysDown.indexOf("S") > -1)){
 			if(Math.abs(this.playerData.yVel) > this.playerData.friction*dts){
 				this.playerData.yVel -= dts*this.playerData.friction*Math.abs(this.playerData.yVel)/this.playerData.yVel
 			}
