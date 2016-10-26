@@ -1,0 +1,21 @@
+Rendering{
+	draw based on z order{
+		background 			 0
+		the rain			 1
+		the foreground  	 2
+		rain particles  	 3
+		the walls			 4
+		the house			 5
+		walls that you bump  6
+		you					 7
+	}
+
+	primary{
+	1 and 7 and 0
+	}
+}
+
+
+
+
+Accepting input
