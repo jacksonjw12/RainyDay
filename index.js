@@ -15,14 +15,19 @@ function main(){
 	particleSystem.addTenParticles();
 
 	render();
-
+	//timeData.previousFrame = new Date();
 }
+var timeData = {"timeOfLoad":new Date(),"previousFrame":new Date()}
 function render(){
 	canvas.context.clearRect(0,0,canvas.width,canvas.height);
-	var timeBetweenFrames = 16
+
+
+	var now = new Date();
+	var timeBetweenFrames = now-timeData.previousFrame;
+
 	particleSystem.run(timeBetweenFrames);
-	
-	setTimeout(render,16);
+	timeData.previousFrame = now;
+	setTimeout(render,16-timeBetweenFrames);
 }
 
 

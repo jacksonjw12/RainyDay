@@ -41,7 +41,7 @@ function ParticleSystem(context){
 			var drop_x = Math.floor(Math.random() * (this.rainDynamics.xRange[1]-this.rainDynamics.xRange[0]))+this.rainDynamics.xRange[0];
 			var drop_y = this.rainDynamics.yRange[0]
 
-			var drop = new RainDrop(drop_x,drop_y,1000,-90,700, 20+Math.random()*60, 2, 'blue');
+			var drop = new RainDrop(drop_x,drop_y,1000,-90,400*Math.random()+200, 20+Math.random()*60, 2, 'blue');
 			this.particles.push(drop);
 		}
 
