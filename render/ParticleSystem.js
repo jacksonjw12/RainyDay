@@ -16,10 +16,15 @@ function ParticleSystem(context){
 
 	}
 
+	this.addPartice = function(p){
+		this.particles.push(p);
+	}
+
 	this.startRain = function(xRange,yRange,speed,density){
 		this.rain = true;
 		this.rainDynamics.xRange = xRange;
 		this.rainDynamics.yRange = yRange;
+		this.rainDynamics.density = density
 		
 	}
 
