@@ -13,7 +13,7 @@ function main(){
 	canvas.context.fillRect(0,0,canvas.width,canvas.height);
 	particleSystem = new ParticleSystem(canvas.context);
 	
-	particleSystem.startRain([600,900],[200,400],400,1.1)
+	particleSystem.startRain([600,900],[200,400],900,1.4)
 	particleSystem.addTenParticles();
 	keys = new Keyboard();
 	keys.initialize(keys)
@@ -26,19 +26,29 @@ function main(){
 }
 
 function render(){
+	canvas.context.save()
 	canvas.context.clearRect(0,0,canvas.width,canvas.height);
+	//canvas.context.translate(-player.position.x+100,-player.position.y+100);
+
+
 	canvas.context.rect(particleSystem.rainDynamics.xRange[0],particleSystem.rainDynamics.yRange[0],particleSystem.rainDynamics.xRange[1]-particleSystem.rainDynamics.xRange[0],particleSystem.rainDynamics.yRange[1]-particleSystem.rainDynamics.yRange[0]);
 	canvas.context.stroke();
 	var now = new Date();
 	var timeBetweenFrames = now-timeData.previousFrame;
-
-
-	particleSystem.run(timeBetweenFrames);
+	if(timeBetweenFrames > 16){
+		console.log("AHHHHH")
+	}
 	player.update(timeBetweenFrames);
+	particleSystem.run(timeBetweenFrames);
+
 	player.render(canvas.context);
+	
+
+	canvas.context.restore();
 
 	timeData.previousFrame = now;
-	setTimeout(render,16-timeBetweenFrames);
+
+	setTimeout(render,16-timeBetweenFrames);//16-timeBetweenFrames);
 }
 
 

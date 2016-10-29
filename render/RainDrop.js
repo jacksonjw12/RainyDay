@@ -21,10 +21,11 @@ function RainDrop(x, y, life, angle, speed, length, width, color){
 		if(endY > particleSystem.rainDynamics.yRange[1]){
 			endY = particleSystem.rainDynamics.yRange[1];
 		}
-		
+		canvas.context.beginPath();
 		canvas.context.moveTo(this.position.x, startY);
 		canvas.context.lineTo(this.position.x, endY);
-		
+		canvas.context.stroke();
+		canvas.context.closePath();
     }
 
 

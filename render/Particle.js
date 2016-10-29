@@ -37,6 +37,7 @@ function Particle(x, y, life, angle, speed) {
 		context.arc(this.position.x, this.position.y, this.radius, 0, 2 * Math.PI, false);
 		context.fillStyle = this.color;
 		context.fill();
+        context.closePath();
     }
 
 }

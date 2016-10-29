@@ -1,11 +1,11 @@
 function Player(xPos, yPos, xVel, yVel){
 	this.position = {"x":xPos,"y":yPos};
-	this.playerData = {"xVel":xVel,"yVel":yVel,"maxSpeed":400,"speedIncrement":2000, "friction":1000}
+	this.playerData = {"xVel":xVel,"yVel":yVel,"maxSpeed":.3,"speedIncrement":2000, "friction":1000}
 	this.radius = 30;
 
-
+	this.color = "#7fbf7f"
 	this.update = function(dt){
-		var dts = dt/1000
+		var dts = dt
 
 		var deltaSpeedIncrement = this.playerData.speedIncrement*dts
 		if(keys.keysDown.indexOf("A") > -1){
@@ -65,24 +65,34 @@ function Player(xPos, yPos, xVel, yVel){
 		}
 		//normalize velocity to maximum velocity
 		var currentSpeed = Math.sqrt(this.playerData.xVel * this.playerData.xVel + this.playerData.yVel*this.playerData.yVel)
-		var ratio = this.playerData.maxSpeed/currentSpeed;
-		if(ratio < 1){
-			this.position.x += this.playerData.xVel * dts * ratio
-			this.position.y += this.playerData.yVel * dts * ratio
+		var ratio = currentSpeed/this.playerData.maxSpeed;
+		if( ratio > 1){
+			this.position.x += this.playerData.xVel * dts / ratio
+			this.position.y += this.playerData.yVel * dts / ratio
 		}
 		else{
-			this.position.x += this.playerData.xVel * dts
-			this.position.y += this.playerData.yVel * dts
+			this.position.x += (this.playerData.xVel * dts);
+			this.position.y += (this.playerData.yVel * dts);
 		}
-		
+		//this.position.x = Math.floor(this.position.x)
+		//this.position.y = Math.floor(this.position.y)
 
 
 	}
 
 	this.render = function(context){
+		context.globalAlpha = 1;
+      context.beginPath();
+      context.arc(this.position.x, this.position.y, this.radius, 0, 2 * Math.PI, false);
+      context.fillStyle = this.color;
+      context.fill();
+
+
 		context.beginPath();
-		context.arc(this.position.x, this.position.y, this.radius, 0, 2 * Math.PI);
+		//context.arc(this.position.x, this.position.y, this.radius, 0, 2 * Math.PI);
+
 		context.fillStyle = this.color;
+
 		context.fill();
 		
 	}

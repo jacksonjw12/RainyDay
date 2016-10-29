@@ -12,7 +12,7 @@ function ParticleSystem(context){
 
 
 		}
-		particleSystem.render();
+		this.render();
 
 	}
 
@@ -62,12 +62,13 @@ function ParticleSystem(context){
 
 	}
 	this.render = function(){
-		canvas.context.beginPath();
+		canvas.context.strokeStyle = '#6E90CF';
+
 		for(var n = 0; n< this.particles.length; n++){
 			this.particles[n].render(this.context)
+
 		}
-		canvas.context.strokeStyle = '#6E90CF';
-		canvas.context.stroke();
+		
 	}
 
 
