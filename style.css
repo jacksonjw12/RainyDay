@@ -1,0 +1,33 @@
+* {
+	background-color: #c6d9ec;
+}
+
+@font-face {
+	font-family: JazzText;
+	src: jazztext.tff;
+}
+
+h1 {
+	height: 30px;
+	width: 100%;
+	font-family: JazzText;
+	text-align: center;
+	font-size: 50px;
+	font-style: normal;
+}
+
+h2 {
+	text-align: center;
+	font-family: JazzText;
+}
+
+#CanvasDiv {
+	/*background-color: #000000;*/
+	width: 100%;
+}
+
+#GameCanvas {
+	background-color: #FFFFFF;
+	width: 80%;
+	height: width*(5/3);
+}
